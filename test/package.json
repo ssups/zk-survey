@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@aztec/bb.js": "^0.84.0",
+    "@noir-lang/noir_js": "^1.0.0-beta.6",
+    "merkletreejs": "^0.5.2",
+    "ts-node": "^10.9.2"
+  },
+  "version": "0.0.0",
+  "types": "module"
+}
