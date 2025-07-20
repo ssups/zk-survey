@@ -15,9 +15,10 @@ async function main() {
   });
 
   const secret = new Fr(BigInt(1));
+  const uuid = hash([new Fr(BigInt("0xdddddd"))]);
   const surveyId = new Fr(BigInt(1));
-  const nulifier = hash([secret, surveyId]);
-  const leafNode = hash([secret]);
+  const nulifier = hash([secret, uuid, surveyId]);
+  const leafNode = hash([secret, uuid]);
 
   mt.insert(leafNode);
 
@@ -26,6 +27,7 @@ async function main() {
 
   const { witness } = await noir.execute({
     secret: secret.toString(),
+    uuid: uuid.toString(),
     merkle_index: index,
     merkle_proof: path.map((sibling: Fr) => sibling.toString()),
     survey_id: surveyId.toString(),
